@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  micronaut-db:
+    image: mysql:latest
+    container_name: micronaut-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: micronaut
+      MYSQL_DATABASE: micronaut
+    ports:
+      - "3306:3306"

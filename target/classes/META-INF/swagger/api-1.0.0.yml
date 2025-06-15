@@ -1,0 +1,315 @@
+openapi: 3.0.1
+info:
+  title: api
+  version: 1.0.0
+paths:
+  /eventos:
+    get:
+      tags:
+      - Eventos
+      summary: Lista todos os eventos
+      operationId: listarTodos
+      responses:
+        "200":
+          description: listarTodos 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      tags:
+      - Eventos
+      summary: Cadastra um novo evento
+      operationId: criar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventoDTO"
+        required: true
+      responses:
+        "200":
+          description: criar 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /eventos/{id}:
+    get:
+      tags:
+      - Eventos
+      summary: Busca evento por ID
+      operationId: buscarPorId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: buscarPorId 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      tags:
+      - Eventos
+      summary: Atualiza um evento existente
+      operationId: atualizar
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventoDTO"
+        required: true
+      responses:
+        "200":
+          description: atualizar 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      tags:
+      - Eventos
+      summary: Remove um evento por ID
+      operationId: remover
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: remover 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /inscricoes:
+    get:
+      tags:
+      - Inscrições
+      summary: Lista todas as inscrições
+      operationId: listarTodas
+      responses:
+        "200":
+          description: listarTodas 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      tags:
+      - Inscrições
+      summary: Realiza uma nova inscrição
+      operationId: criar_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InscricaoDTO"
+        required: true
+      responses:
+        "200":
+          description: criar_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /inscricoes/{id}:
+    get:
+      tags:
+      - Inscrições
+      summary: Busca inscrição por ID
+      operationId: buscarPorId_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: buscarPorId_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /inscricoes/{id}/cancelar:
+    put:
+      tags:
+      - Inscrições
+      summary: Cancela uma inscrição existente
+      operationId: cancelar
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: cancelar 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /participantes:
+    get:
+      tags:
+      - Participantes
+      summary: Lista todos os participantes
+      operationId: listarTodos_1
+      responses:
+        "200":
+          description: listarTodos_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      tags:
+      - Participantes
+      summary: Cadastra um novo participante
+      operationId: criar_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParticipanteDTO"
+        required: true
+      responses:
+        "200":
+          description: criar_2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /participantes/{id}:
+    get:
+      tags:
+      - Participantes
+      summary: Busca participante por ID
+      operationId: buscarPorId_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: buscarPorId_2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      tags:
+      - Participantes
+      summary: Atualiza um participante existente
+      operationId: atualizar_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParticipanteDTO"
+        required: true
+      responses:
+        "200":
+          description: atualizar_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      tags:
+      - Participantes
+      summary: Remove um participante por ID
+      operationId: remover_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: remover_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    EventoDTO:
+      required:
+      - data
+      - descricao
+      - local
+      - nome
+      type: object
+      properties:
+        data:
+          type: string
+          format: date-time
+        descricao:
+          type: string
+        local:
+          minLength: 1
+          type: string
+        nome:
+          minLength: 1
+          type: string
+    InscricaoDTO:
+      required:
+      - eventoId
+      - participanteId
+      type: object
+      properties:
+        eventoId:
+          type: integer
+          format: int64
+        participanteId:
+          type: integer
+          format: int64
+    ParticipanteDTO:
+      required:
+      - email
+      - nome
+      - telefone
+      type: object
+      properties:
+        email:
+          minLength: 1
+          type: string
+          format: email
+        nome:
+          minLength: 1
+          type: string
+        telefone:
+          type: string

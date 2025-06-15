@@ -1,0 +1,4 @@
+com/example/ApirestTest.class
+META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.example.$ApirestTest$Definition
+com/example/$ApirestTest$Definition.class
+com/example/$ApirestTest$Definition$Exec.class
