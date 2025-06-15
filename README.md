@@ -1,3 +1,9 @@
+# Trabalho - Tópicos Especiais de Programação
+
+Este projeto foi desenvolvido como parte da disciplina **Tópicos Especiais de Programação** do curso de **Bacharelado em Sistemas de Informação**, ministrado na **Universidade Estadual do Tocantins - UNITINS**.
+
+Alunos: *Guilherme Rio Belo Correia Pereira, Victor Alves dos Reis Dias & Werbton Carvalho da Rocha Filho*   
+
 # Sistema de Gestão de Eventos - API REST
 
 Projeto desenvolvido para a disciplina de **Tópicos Especiais em Programação**, com o objetivo de criar uma API REST para gerenciamento de eventos, participantes e inscrições.
